@@ -63,3 +63,40 @@ array_relationships:
       table:
         name: user_providers
         schema: auth
+select_permissions:
+- permission:
+    columns:
+    - id
+    - created_at
+    - updated_at
+    - last_seen
+    - disabled
+    - display_name
+    - avatar_url
+    - locale
+    - email
+    - phone_number
+    - password_hash
+    - email_verified
+    - phone_number_verified
+    - new_email
+    - otp_method_last_used
+    - otp_hash
+    - otp_hash_expires_at
+    - default_role
+    - is_anonymous
+    - totp_secret
+    - active_mfa_type
+    - ticket
+    - ticket_expires_at
+    filter: {}
+  role: user
+update_permissions:
+- permission:
+    check: null
+    columns:
+    - display_name
+    filter:
+      id:
+        _eq: X-Hasura-User-Id
+  role: user
